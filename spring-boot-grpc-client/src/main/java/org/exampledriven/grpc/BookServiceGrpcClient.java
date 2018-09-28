@@ -19,8 +19,11 @@ public class BookServiceGrpcClient {
     @Autowired
     EurekaClientConfig eurekaClientConfig;
 
-    @Autowired
-    ManagedChannel managedChannel;
+ 	ManagedChannel managedChannel = ManagedChannelBuilder
+		        .forAddress("localhost", 7565).usePlaintext(true).build();
+
+/*    @Autowired
+    ManagedChannel managedChannel;*/
 
     private Logger logger = LoggerFactory.getLogger(BookServiceGrpcClient.class);
 
